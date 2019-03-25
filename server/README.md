@@ -26,4 +26,4 @@ To run the server, please execute the following from the root directory:
 
 ## License
 
-Apache-2.0 © Albert Suarez
+Apache-2.0 © Maze Productions

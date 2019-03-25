@@ -29,10 +29,6 @@ To run the whole stack, please execute the following from the root directory:
 - Fork this repository
 - Personalize
 
-## Authors
-
-- [Albert Suàrez](https://github.com/AlbertSuarez)
-
 ## License
 
-Apache-2.0 © Albert Suarez
+Apache-2.0 © Maze Productions

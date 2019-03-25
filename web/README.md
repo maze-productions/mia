@@ -68,4 +68,4 @@ ng e2e
 
 ## License
 
-Apache-2.0 © Albert Suarez
+Apache-2.0 © Maze Productions

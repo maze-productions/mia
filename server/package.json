@@ -1,8 +1,8 @@
 {
-  "name": "video-stream-server",
+  "name": "mia-server",
   "version": "0.0.1",
-  "description": "Streaming video server",
-  "repository": "https://github.com/AlbertSuarez/video-stream-server",
+  "description": "Streaming video server for Mia",
+  "repository": "https://github.com/maze-productions/mia",
   "main": "server.js",
   "engines": {
     "node": ">=6.2.0"
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server.js"
   },
-  "author": "AlbertSuarez",
+  "author": "maze-productions",
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.3",
