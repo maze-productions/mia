@@ -3,14 +3,36 @@
   "init": "A",
   "A": [
     {
-      "key": "A2",
-      "value": "Mug"
+      "key": "B1",
+      "value": "Entretenerse"
     },
     {
-      "key": "A1",
-      "value": "Apple"
+      "key": "B2",
+      "value": "Hacer caso"
     }
   ],
-  "A1": null,
-  "A2": null
+  "B1": [
+    {
+      "key": "B1A",
+      "value": "Defenderse"
+    },
+    {
+      "key": "B1B",
+      "value": "Escapar"
+    }
+  ],
+  "B1A": null,
+  "B1B": null,
+  "B2": [
+    {
+      "key": "B2A",
+      "value": "Rebelarse"
+    },
+    {
+      "key": "B2B",
+      "value": "Disculparse"
+    }
+  ],
+  "B2A": null,
+  "B2B": null
 }
