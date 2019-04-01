@@ -13,7 +13,7 @@ const app = express()
 app.get('/video', function(req, res) {
   var id = req.query.id;
   if (id) {
-    const path = `assets/${id}.MOV`;
+    const path = `assets/${id}.mp4`;
     if (fs.existsSync(path)) {
       const stat = fs.statSync(path);
       const fileSize = stat.size;
