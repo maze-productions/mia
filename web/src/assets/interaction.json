@@ -21,8 +21,26 @@
       "value": "Escapar"
     }
   ],
-  "B1A": null,
-  "B1B": null,
+  "B1A": [
+    {
+      "key": "C1",
+      "value": "Coger tijeras"
+    },
+    {
+      "key": "C2",
+      "value": "Guardar tijeras"
+    }
+  ],
+  "B1B": [
+    {
+      "key": "X",
+      "value": "Opción 1"
+    },
+    {
+      "key": "D",
+      "value": "Opción 2"
+    }
+  ],
   "B2": [
     {
       "key": "B2A",
@@ -34,5 +52,20 @@
     }
   ],
   "B2A": null,
-  "B2B": null
+  "B2B": null,
+  "C1": null,
+  "C2": null,
+  "D": [
+    {
+      "key": "D6",
+      "value": "Tomar pastilla"
+    },
+    {
+      "key": "D7",
+      "value": "Negarse a tomar pastilla"
+    }
+  ],
+  "D6": null,
+  "D7": null,
+  "X": null
 }
