@@ -1,10 +1,18 @@
-<div class="container">
-  <h1>{{ title }}</h1>
-  <h2>{{ subtitle }}</h2>
+<div class="header">
+    <a class="logo">Maze Productions</a>
+    <div class="header-right">
+      <a href="/project">Proyecto</a>
+      <a href="/contact">Equipo</a>
+      <a href="/about">Contacto</a>
+    </div>
+  </div>
 
-  <hr/>
+<div class="trailer-bg">
 
-  <p>{{ question }}</p>
-  <a href="/play" class="button">{{ playButton }}</a>
+  <video class="trailer-player" autoplay muted loop></video>
+
+  <div class="container">
+    <a href="/play" class="button fixed">{{ playButton }}</a>
+  </div>
 
 </div>
