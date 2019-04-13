@@ -60,7 +60,7 @@ body.white {
   text-align: center;
   text-decoration: none;
   color: $bg_color;
-  border: 2px solid $bg_color;
+  border: 0.125em solid $bg_color;
   font-size: 1.5em;
   display: inline-block;
   border-radius: 0.3em;
@@ -84,7 +84,7 @@ body.white {
   &:hover {
     background-color: $bg_color;
     color: $text_color;
-    border-bottom: 4px solid darken($bg_color, 10%);
+    border-bottom: 0.25em solid darken($bg_color, 10%);
 
     &:before {
       transform: skewX(-45deg) translateX(13.5em);
@@ -231,47 +231,40 @@ body.white {
 
 .header {
   z-index: 1;
-  overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: auto;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
   background-color: $bg_color;
 }
 
   .header a {
-    float: left;
     color: $text_color;
-    text-align: center;
-    padding: 12px;
+    padding: 1em;
     text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+    font-size: 1em;
+    display: inline-block;
+    line-height: 1;
+    transition: background-color 0.5s ease-out;
   }
 
   .header a.logo {
-    font-size: 25px;
+    font-size: 1.5em;
     font-weight: bold;
+    padding: 0.5em;
   }
 
-  .header a:hover {
+  .header .nav-links a:hover {
     background-color: $hover_color;
   }
-
-.header-right {
-  float: right;
-}
 
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
     display: block;
     text-align: left;
-  }
-  .header-right {
-    float: none;
   }
 }
 
@@ -291,11 +284,11 @@ body.white {
 
   .footer a {
     color: $text_color;
-    padding: 12px;
+    padding: 0.75em;
     text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+    font-size: 1em;
+    line-height: 1.5em;
+    transition: background-color 0.5s ease-out;
   }
 
   .footer a:hover {

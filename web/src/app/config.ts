@@ -1,12 +1,12 @@
 'use strict';
 
-export const title = 'Short title';
-export const subtitle = 'An interactive short film by Maze Productions';
-export const question = 'How do you want to play?';
-export const playButton = 'Play';
+export const producer = 'Maze Productions';
+export const project = 'Proyecto';
+export const team = 'Equipo';
+export const contact = 'Contacto';
 
 export const errorTitle = 'Ooops!';
-export const errorSubtitle = 'Something went wrong.';
-export const errorButton = 'Go home';
+export const errorSubtitle = 'Algo fue mal!';
+export const errorButton = 'Volver';
 
-export const doneButtonText = 'Return';
+export const doneButtonText = 'Volver';
