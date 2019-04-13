@@ -54,7 +54,16 @@
   "B2A": null,
   "B2B": null,
   "C1": null,
-  "C2": null,
+  "C2": [
+    {
+      "key": "D3",
+      "value": "Amenazar con tijeras"
+    },
+    {
+      "key": "D4",
+      "value": "Suicidarse"
+    }
+  ],
   "D": [
     {
       "key": "D6",
@@ -65,6 +74,8 @@
       "value": "Negarse a tomar pastilla"
     }
   ],
+  "D3": null,
+  "D4": null,
   "D6": null,
   "D7": null,
   "X": null
