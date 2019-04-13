@@ -1,5 +1,8 @@
 'use strict';
 
+export const title = 'Mia';
+export const subtitle = 'El corto interactivo';
+
 export const producer = 'Maze Productions';
 export const project = 'Proyecto';
 export const team = 'Equipo';
