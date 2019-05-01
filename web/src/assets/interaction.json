@@ -1,5 +1,6 @@
 {
   "_comment": "This file must have an `init` for starting the short. Can't be more than 4 options per key.",
+  "trailer": "A",
   "init": "A",
   "A": [
     {

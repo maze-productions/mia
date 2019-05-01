@@ -6,15 +6,11 @@ $opacity_from: 0.0;
 $opacity_to: 1.0;
 $opacity_duration: 3s;
 
-$background_opacity: 0.7;
-$color_v1: #ffffff;
-$color_v2: #ffff00;
-$color_v3: #00ffff;
-$color_v4: #00ff00;
 $color_duration: 10s;
 
-$color: #111111;
-$color_secondary: #333333;
+$bg_color: #000;
+$hover_color: #333333;
+$text_color: #bbb;
 
 /* BODY */
 
@@ -24,6 +20,11 @@ body {
   animation: opacitychange $opacity_duration, colorchange $color_duration infinite;
   -webkit-animation: opacitychange $opacity_duration, colorchange $color_duration infinite; /* Chrome and Safari */
   font-family: 'Open Sans', Helvetica, sans-serif;
+  background: $bg_color;
+}
+
+body.white {
+  background: $text_color !important;
 }
 
 @keyframes opacitychange
@@ -38,55 +39,7 @@ body {
   100%  {opacity: $opacity_to;}
 }
 
-
-@keyframes colorchange
-{
-  0%   {background: rgba($color: $color_v1, $alpha: $background_opacity);}
-  25%  {background: rgba($color: $color_v2, $alpha: $background_opacity);}
-  50%  {background: rgba($color: $color_v3, $alpha: $background_opacity);}
-  75%  {background: rgba($color: $color_v4, $alpha: $background_opacity);}
-  100% {background: rgba($color: $color_v1, $alpha: $background_opacity);}
-}
-
-@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
-{
-  0%   {background: rgba($color: $color_v1, $alpha: $background_opacity);}
-  25%  {background: rgba($color: $color_v2, $alpha: $background_opacity);}
-  50%  {background: rgba($color: $color_v3, $alpha: $background_opacity);}
-  75%  {background: rgba($color: $color_v4, $alpha: $background_opacity);}
-  100% {background: rgba($color: $color_v1, $alpha: $background_opacity);}
-}
-
-/* HR */
-
-hr {
-  margin: 0 0 50px 0;
-  display: block;
-  border: none;
-  height: 1px;
-  animation: gradientchange $color_duration infinite;
-  -webkit-animation: gradientchange $color_duration infinite; /* Chrome and Safari */
-}
-
-@keyframes gradientchange
-{
-  0%   {background: linear-gradient(to right, $color_v1, $color, $color_secondary, $color, $color_v1);}
-  25%  {background: linear-gradient(to right, $color_v2, $color, $color_secondary, $color, $color_v2);}
-  50%  {background: linear-gradient(to right, $color_v3, $color, $color_secondary, $color, $color_v3);}
-  75%  {background: linear-gradient(to right, $color_v4, $color, $color_secondary, $color, $color_v4);}
-  100% {background: linear-gradient(to right, $color_v1, $color, $color_secondary, $color, $color_v1);}
-}
-
-@-webkit-keyframes gradientchange /* Safari and Chrome - necessary duplicate */
-{
-  0%   {background: linear-gradient(to right, $color_v1, $color, $color_secondary, $color, $color_v1);}
-  25%  {background: linear-gradient(to right, $color_v2, $color, $color_secondary, $color, $color_v2);}
-  50%  {background: linear-gradient(to right, $color_v3, $color, $color_secondary, $color, $color_v3);}
-  75%  {background: linear-gradient(to right, $color_v4, $color, $color_secondary, $color, $color_v4);}
-  100% {background: linear-gradient(to right, $color_v1, $color, $color_secondary, $color, $color_v1);}
-}
-
-/* BUTTON */
+/* BUTTON OPTION */
 
 @keyframes sheen
 {
@@ -106,8 +59,8 @@ hr {
   padding: 0.75em 2em;
   text-align: center;
   text-decoration: none;
-  color: $color;
-  border: 2px solid $color;
+  color: $bg_color;
+  border: 0.125em solid $bg_color;
   font-size: 1.5em;
   display: inline-block;
   border-radius: 0.3em;
@@ -129,9 +82,9 @@ hr {
   }
 
   &:hover {
-    background-color: $color;
-    color: #fff;
-    border-bottom: 4px solid darken($color, 10%);
+    background-color: $bg_color;
+    color: $text_color;
+    border-bottom: 0.25em solid darken($bg_color, 10%);
 
     &:before {
       transform: skewX(-45deg) translateX(13.5em);
@@ -141,8 +94,8 @@ hr {
   }
 
   &.fixed {
-    background-color: $color;
-    color: #fff;
+    background-color: $bg_color;
+    color: $text_color;
     animation: opacitychange $opacity_duration;
     -webkit-animation: opacitychange $opacity_duration;
   }
@@ -157,6 +110,95 @@ hr {
     font-size: 1.3em;
   }
 
+}
+
+/* BUTTON PLAY */
+
+@keyframes pulsate1 {
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0 0 1.55em 0.2em $text_color, 0 0 1.55em 0.625em $text_color;
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: none;
+
+  }
+}
+
+@-webkit-keyframes pulsate1   /* Safari and Chrome - necessary duplicate */
+{
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0 0 1.55em 0.2em $text_color, 0 0 1.55em 0.625em $text_color;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: none;
+
+  }
+}
+
+.button-play {
+  width: 6.25em;
+  height: 6.25em;
+  background: radial-gradient( $bg_color, $hover_color 75%);
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  margin: 6.25em auto;
+  box-shadow: 0 0 1.55em 0.2em $bg_color;
+}
+
+/* triangle */
+.button-play::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-40%) translateY(-50%);
+  transform: translateX(-40%) translateY(-50%);
+  transform-origin: center center;
+  width: 0;
+  height: 0;
+  border-top: 0.95em solid transparent;
+  border-bottom: 0.95em solid transparent;
+  border-left: 1.55em solid #fff;
+  z-index: 100;
+  -webkit-transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* pulse wave */
+.button-play:before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation: pulsate1 2s;
+  animation: pulsate1 2s;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 5px solid $text_color;
+  top: -30%;
+  left: -30%;
+  background: $bg_color;
 }
 
 /* CONTAINER */
@@ -230,7 +272,7 @@ hr {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background: black !important;
+  background: $bg_color !important;
 }
 
   .video-bg > video {
@@ -255,4 +297,89 @@ hr {
       width: 100%; height: 100%;
       object-fit: cover;
     }
+  }
+
+/* TRAILER */
+
+.trailer-bg {
+  z-index: -1;
+  overflow: hidden;
+  background: $bg_color !important;
+}
+
+  .trailer-bg > video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+/* HEADER */
+
+.header {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: $bg_color;
+}
+
+  .header a {
+    color: $text_color;
+    padding: 1em;
+    text-decoration: none;
+    font-size: 1em;
+    display: inline-block;
+    line-height: 1;
+    transition: background-color 0.5s ease-out;
+  }
+
+  .header a.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.5em;
+  }
+
+  .header .nav-links a:hover {
+    background-color: $hover_color;
+  }
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+/* FOOTER */
+
+.footer {
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $text_color;
+  display: flex;
+  justify-content: center;
+  background-color: $bg_color;
+}
+
+  .footer a {
+    color: $text_color;
+    padding: 0.75em;
+    text-decoration: none;
+    font-size: 1em;
+    line-height: 1.5em;
+    transition: background-color 0.5s ease-out;
+  }
+
+  .footer a:hover {
+    background-color: $hover_color;
   }

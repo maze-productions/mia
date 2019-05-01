@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+
 
 import * as config from '../config';
 
@@ -7,7 +8,7 @@ import * as config from '../config';
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss']
 })
-export class ErrorComponent implements OnInit {
+export class ErrorComponent implements OnInit, AfterViewInit, OnDestroy {
   errorTitle = config.errorTitle;
   errorSubtitle = config.errorSubtitle;
   errorButton = config.errorButton;
@@ -15,6 +16,14 @@ export class ErrorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    document.querySelector('body').classList.add('white');
+  }
+
+  ngOnDestroy(): void {
+    document.querySelector('body').classList.remove('white');
   }
 
 }
