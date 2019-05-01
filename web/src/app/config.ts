@@ -13,3 +13,8 @@ export const errorSubtitle = 'Algo fue mal!';
 export const errorButton = 'Volver';
 
 export const doneButtonText = 'Volver';
+
+export const facebookUser = '';
+export const instagramUser = '';
+export const twitterUser = '';
+export const emailAddress = 'mazeproductions@gmail.com';

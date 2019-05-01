@@ -17,6 +17,11 @@ export class HomeComponent implements OnInit {
   team = config.team;
   contact = config.contact;
 
+  facebookUser = config.facebookUser;
+  instagramUser = config.instagramUser;
+  twitterUser = config.twitterUser;
+  emailAddress = config.emailAddress;
+
   constructor(private interactionService: InteractionService) { }
 
   ngOnInit() {
