@@ -4,12 +4,32 @@
   "init": "A",
   "A": [
     {
+      "key": "A1",
+      "value": "Llamar"
+    },
+    {
+      "key": "A2",
+      "value": "No llamar"
+    }
+  ],
+  "A1": [
+    {
       "key": "B1",
-      "value": "Entretenerse"
+      "value": "Vestirse como Gonzalo dice"
     },
     {
       "key": "B2",
-      "value": "Hacer caso"
+      "value": "Vestirse como Mia quiere"
+    }
+  ],
+  "A2": [
+    {
+      "key": "B1",
+      "value": "Vestirse como Gonzalo dice"
+    },
+    {
+      "key": "B2",
+      "value": "Vestirse como Mia quiere"
     }
   ],
   "B1": [
@@ -19,27 +39,7 @@
     },
     {
       "key": "B1B",
-      "value": "Escapar"
-    }
-  ],
-  "B1A": [
-    {
-      "key": "C1",
-      "value": "Coger tijeras"
-    },
-    {
-      "key": "C2",
-      "value": "Guardar tijeras"
-    }
-  ],
-  "B1B": [
-    {
-      "key": "X",
-      "value": "Opción 1"
-    },
-    {
-      "key": "D",
-      "value": "Opción 2"
+      "value": "Disculparse"
     }
   ],
   "B2": [
@@ -49,22 +49,70 @@
     },
     {
       "key": "B2B",
-      "value": "Disculparse"
+      "value": "Asentir"
     }
   ],
-  "B2A": null,
-  "B2B": null,
-  "C1": null,
+  "B1A": [
+    {
+      "key": "C1",
+      "value": "Coger tijeras"
+    },
+    {
+      "key": "C2",
+      "value": "Esconder tijeras"
+    }
+  ],
+  "B1B": [
+    {
+      "key": "X1",
+      "value": "No abrir"
+    },
+    {
+      "key": "D",
+      "value": "Abrir"
+    }
+  ],
+  "B2A": [
+    {
+      "key": "C1",
+      "value": "Coger tijeras"
+    },
+    {
+      "key": "C3-D5",
+      "value": "Amenazar con tijeras"
+    }
+  ],
+  "B2B": [
+    {
+      "key": "X2",
+      "value": "Hablarlo mañana"
+    },
+    {
+      "key": "E",
+      "value": "Hacer como si nada"
+    }
+  ],
+  "C1": [
+    {
+      "key": "D1",
+      "value": "Escapar de casa"
+    },
+    {
+      "key": "D2",
+      "value": "Encerrarse en casa"
+    }
+  ],
   "C2": [
     {
       "key": "D3",
-      "value": "Amenazar con tijeras"
+      "value": "Darle las tijeras"
     },
     {
-      "key": "D4",
-      "value": "Suicidarse"
+      "key": "E1",
+      "value": "No darle las tijeras"
     }
   ],
+  "C3-D5": null,
   "D": [
     {
       "key": "D6",
@@ -72,12 +120,56 @@
     },
     {
       "key": "D7",
-      "value": "Negarse a tomar pastilla"
+      "value": "Enfrentarse"
     }
   ],
+  "D1": null,
+  "D2": null,
   "D3": null,
-  "D4": null,
   "D6": null,
+  "D6A": null,
+  "D6B": null,
   "D7": null,
-  "X": null
+  "D8": null,
+  "E": [
+    {
+      "key": "D6A",
+      "value": "Tomar pastilla"
+    },
+    {
+      "key": "E1",
+      "value": "No tomar pastilla"
+    }
+  ],
+  "E1": [
+    {
+      "key": "D6B",
+      "value": "Tomar pastilla"
+    },
+    {
+      "key": "D8",
+      "value": "Confesar lo de anoche"
+    }
+  ],
+  "X1": [
+    {
+      "key": "D1",
+      "value": "Escapar de casa"
+    },
+    {
+      "key": "Z",
+      "value": "Seguir con Gonzalo"
+    }
+  ],
+  "X2": [
+    {
+      "key": "D1",
+      "value": "Escapar de casa"
+    },
+    {
+      "key": "Z",
+      "value": "Seguir con Gonzalo"
+    }
+  ],
+  "Z": null
 }
