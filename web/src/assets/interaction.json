@@ -42,16 +42,6 @@
       "value": "Disculparse"
     }
   ],
-  "B2": [
-    {
-      "key": "B2A",
-      "value": "Rebelarse"
-    },
-    {
-      "key": "B2B",
-      "value": "Asentir"
-    }
-  ],
   "B1A": [
     {
       "key": "C1",
@@ -70,6 +60,16 @@
     {
       "key": "D",
       "value": "Abrir"
+    }
+  ],
+  "B2": [
+    {
+      "key": "B2A",
+      "value": "Rebelarse"
+    },
+    {
+      "key": "B2B",
+      "value": "Asentir"
     }
   ],
   "B2A": [
@@ -108,7 +108,7 @@
       "value": "Darle las tijeras"
     },
     {
-      "key": "E1",
+      "key": "D4",
       "value": "No darle las tijeras"
     }
   ],
@@ -126,6 +126,7 @@
   "D1": null,
   "D2": null,
   "D3": null,
+  "D4": null,
   "D6": null,
   "D6A": null,
   "D6B": null,
