@@ -15,6 +15,7 @@ import * as env from '../../environments/environment';
 export class PlayComponent implements OnInit {
 
   doneButtonText = config.doneButtonText;
+  electionTimer = null;
 
   constructor(private interactionService: InteractionService) { }
 
@@ -26,6 +27,10 @@ export class PlayComponent implements OnInit {
 
   private changeVideo(key: string) {
     $('.container').hide();
+    if (this.electionTimer) {
+      clearTimeout(this.electionTimer);
+      this.electionTimer = null;
+    }
     this.interactionService.getInteractionJson().subscribe((data) => {
       $('.video-player').attr('src', env.environment.server + key);
       const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
@@ -48,6 +53,14 @@ export class PlayComponent implements OnInit {
 
   private showOptions() {
     $('.options').show();
+    this.electionTimer = setTimeout(
+      () => {
+        const options = $('.options a');
+        const optionToSelect = Math.floor(Math.random() * options.length);
+        const buttonElement: HTMLAreaElement = <HTMLAreaElement> options.get(optionToSelect);
+        buttonElement.click();
+      }, config.timeToSelectInSeconds * 1000
+    );
     return false;
   }
 

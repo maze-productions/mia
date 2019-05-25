@@ -1,0 +1,68 @@
+.timer-container {
+  width: auto;
+
+  & .timer {
+    padding-top: 10em;
+
+    & .timer-progress {
+      position: relative;
+      float: center;
+      width: 30em;
+      height: 1.25em;
+      background-color: rgba(0,0,0,0.4);
+      padding: 0.313em;
+      box-sizing: border-box;
+      border-radius: 0.625em;
+
+      & .timer-progress-bar {
+        position: relative;
+        width: 100%;
+        height: 0.625em;
+        border-radius: 0.5em;
+        background-color: white;
+        animation: fill 10s linear 1;
+      }
+
+      @keyframes fill
+      {
+        0% {width: 0%;}
+        100% {width: 100%;}
+      }
+
+      @-webkit-keyframes fill /* Safari and Chrome - necessary duplicate */
+      {
+        0% {width: 0%;}
+        100% {width: 100%;}
+      }
+
+    }
+
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .timer {
+    padding-top: 9em !important;
+
+    & .timer-progress {
+      width: 20em !important;
+    }
+
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  .timer {
+    padding-top: 5em !important;
+
+    & .timer-progress {
+      width: 10em !important;
+    }
+
+  }
+
+}

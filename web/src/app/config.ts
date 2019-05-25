@@ -1,5 +1,7 @@
 'use strict';
 
+export const timeToSelectInSeconds = 10;
+
 export const title = 'Mia';
 export const subtitle = 'El corto interactivo';
 
