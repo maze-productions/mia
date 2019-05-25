@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import * as $ from 'jquery';
 
 import { InteractionService } from '../interaction.service';
 import * as config from '../config';
 import * as env from '../../environments/environment';
+import { DOCUMENT } from '@angular/platform-browser';
 
 
 @Component({
@@ -17,15 +18,19 @@ export class PlayComponent implements OnInit {
   doneButtonText = config.doneButtonText;
   electionTimer = null;
 
-  constructor(private interactionService: InteractionService) { }
+  constructor(
+    @Inject(DOCUMENT) private document: any,
+    private interactionService: InteractionService
+  ) { }
 
   ngOnInit() {
+    document.addEventListener('keyup', (e) => this.handleKey(e.keyCode));
     this.interactionService.getInteractionJson().subscribe((data) => {
       this.changeVideo(data.init);
     });
   }
 
-  private changeVideo(key: string) {
+  private changeVideo(key: string): boolean {
     $('.container').hide();
     if (this.electionTimer) {
       clearTimeout(this.electionTimer);
@@ -51,7 +56,7 @@ export class PlayComponent implements OnInit {
     return false;
   }
 
-  private showOptions() {
+  private showOptions(): boolean {
     $('.options').show();
     this.electionTimer = setTimeout(
       () => {
@@ -64,9 +69,38 @@ export class PlayComponent implements OnInit {
     return false;
   }
 
-  private showDone() {
+  private showDone(): boolean {
     $('.done').show();
     return false;
+  }
+
+  private handleKey(keyCode: number): void {
+    if (keyCode === 32 || keyCode === 80) {
+      const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
+      if (videoPlayer.paused) {
+        videoPlayer.play();
+      } else {
+        videoPlayer.pause();
+      }
+    } else if (keyCode === 70) {
+      this.openFullscreen();
+    }
+  }
+
+  private openFullscreen(): void {
+    const elem: HTMLElement | any = this.document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
   }
 
 }
