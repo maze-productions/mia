@@ -8,13 +8,12 @@ services:
     build:
       context: web
       dockerfile: Dockerfile
-    volumes:
-      - ./web:/usr/src/app
-      - /usr/src/app/node_modules
+      args:
+        configuration: production
     networks:
       - interactive_short
     ports:
-      - 80:4200
+      - 80:80
     restart: "always"
     depends_on:
       - interactive_short_server
@@ -25,9 +24,6 @@ services:
     build:
       context: server
       dockerfile: Dockerfile
-    volumes:
-      - ./server:/usr/src/app
-      - /usr/src/app/node_modules
     networks:
       - interactive_short
     ports:

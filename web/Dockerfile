@@ -1,20 +1,25 @@
-# base image
-FROM node:9.6.1
+# Stage 0, "build-stage", based on Node.js, to build and compile the frontend
+FROM node:11.3.0 as build-stage
 
-# set working directory
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-# install and cache app dependencies
 COPY package.json /usr/src/app/package.json
 RUN npm install
-RUN npm install -g @angular/cli@1.7.1
+RUN npm i npm@6.9.0 -g
+RUN npm install -g @angular/cli@7.3.9
 
-# add app
 COPY . /usr/src/app
+ARG configuration
+RUN ng build --configuration $configuration
 
-# start app
-CMD ng serve --host 0.0.0.0 --disable-host-check --prod
+
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+
+FROM nginx:1.15.8
+RUN rm -rf /usr/share/nginx/html/*
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build-stage /usr/src/app/dist/mia /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
