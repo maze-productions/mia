@@ -9,8 +9,10 @@ $opacity_duration: 3s;
 $color_duration: 10s;
 
 $bg_color: #000;
+$bg_color_inverted: #fff;
 $hover_color: #333333;
 $text_color: #bbb;
+$text_color_inverted: #444;
 
 /* BODY */
 
@@ -98,6 +100,23 @@ body.white {
     color: $text_color;
     animation: opacitychange $opacity_duration;
     -webkit-animation: opacitychange $opacity_duration;
+  }
+
+  &.invert {
+    background-color: $bg_color_inverted;
+    color: $text_color_inverted;
+    border: 0.125em solid $bg_color_inverted;
+
+    &:before {
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    &:hover {
+      background-color: $bg_color_inverted;
+      color: $text_color_inverted;
+      border-bottom: 0.25em solid darken($bg_color_inverted, 10%);
+    }
+
   }
 
 }
