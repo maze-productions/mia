@@ -26,12 +26,12 @@ export class PlayComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.toastr.info('<b>Pausar</b>: Barra espacionadora<br><b>Pantalla completa</b>: F', '', {
+    setTimeout(() => this.toastr.info('<b>Pausar</b>: Barra espacionadora<br><b>Pantalla completa</b>: F', null, {
       progressBar: true,
       timeOut: 10000,
       enableHtml: true,
       positionClass: 'toast-bottom-center'
-    });
+    }));
     document.addEventListener('keyup', (e) => this.handleKey(e.keyCode));
     this.interactionService.getInteractionJson().subscribe((data) => {
       this.changeVideo(data.init);
