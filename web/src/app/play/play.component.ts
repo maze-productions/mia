@@ -18,6 +18,7 @@ export class PlayComponent implements OnInit {
 
   doneButtonText = config.doneButtonText;
   electionTimer = null;
+  handleFullscreen = this.openFullscreen;
 
   constructor(
     @Inject(DOCUMENT) private document: any,
@@ -32,7 +33,18 @@ export class PlayComponent implements OnInit {
       enableHtml: true,
       positionClass: 'toast-bottom-center'
     }));
-    document.addEventListener('keyup', (e) => this.handleKey(e.keyCode));
+
+    this.document.addEventListener('click', this.playOrPause.bind(this));
+    this.document.addEventListener('dblclick', this.handleFullscreen.bind(this));
+    this.document.addEventListener('keyup', (e: any) => this.handleKey(e.keyCode));
+    this.document.addEventListener('fullscreenchange', () => {
+      if (this.handleFullscreen === this.openFullscreen) {
+        this.handleFullscreen = this.closeFullscreen;
+      } else {
+        this.handleFullscreen = this.openFullscreen;
+      }
+    });
+
     this.interactionService.getInteractionJson().subscribe((data) => {
       this.changeVideo(data.init);
     });
@@ -79,16 +91,22 @@ export class PlayComponent implements OnInit {
     return false;
   }
 
-  private handleKey(keyCode: number): void {
-    if (keyCode === 32 || keyCode === 80) {
-      const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
+  private playOrPause(): void {
+    const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
+    if (!videoPlayer.ended) {
       if (videoPlayer.paused) {
         videoPlayer.play();
       } else {
         videoPlayer.pause();
       }
+    }
+  }
+
+  private handleKey(keyCode: number): void {
+    if (keyCode === 32 || keyCode === 80) {
+      this.playOrPause();
     } else if (keyCode === 70) {
-      this.openFullscreen();
+      this.handleFullscreen();
     }
   }
 
@@ -105,6 +123,21 @@ export class PlayComponent implements OnInit {
     } else if (elem.msRequestFullscreen) {
       /* IE/Edge */
       elem.msRequestFullscreen();
+    }
+  }
+
+  private closeFullscreen(): void {
+    if (this.document.exitFullscreen) {
+      this.document.exitFullscreen();
+    } else if (this.document.mozCancelFullScreen) {
+      /* Firefox */
+      this.document.mozCancelFullScreen();
+    } else if (this.document.webkitExitFullscreen) {
+      /* Chrome, Safari and Opera */
+      this.document.webkitExitFullscreen();
+    } else if (this.document.msExitFullscreen) {
+      /* IE/Edge */
+      this.document.msExitFullscreen();
     }
   }
 
