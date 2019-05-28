@@ -414,3 +414,25 @@ body.white {
   .footer a:hover {
     background-color: $hover_color;
   }
+
+/* TOAST */
+
+#toast-container {
+  opacity: 0.6;
+  padding-bottom: 4em;
+
+  > .ngx-toastr {
+    box-shadow: none;
+    color: $text_color_inverted;
+  }
+
+  > .toast-info {
+    background-image: none;
+    background-color: $bg_color_inverted;
+  }
+
+}
+
+.toast-message {
+  margin-left: -2em !important;
+}

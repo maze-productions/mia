@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import * as $ from 'jquery';
 
 import { InteractionService } from '../interaction.service';
@@ -20,10 +21,17 @@ export class PlayComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private document: any,
-    private interactionService: InteractionService
+    private interactionService: InteractionService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
+    this.toastr.info('<b>Pausar</b>: Barra espacionadora<br><b>Pantalla completa</b>: F', '', {
+      progressBar: true,
+      timeOut: 10000,
+      enableHtml: true,
+      positionClass: 'toast-bottom-center'
+    });
     document.addEventListener('keyup', (e) => this.handleKey(e.keyCode));
     this.interactionService.getInteractionJson().subscribe((data) => {
       this.changeVideo(data.init);
