@@ -32,10 +32,7 @@ export class PlayComponent implements OnInit {
 
   private changeVideo(key: string): boolean {
     $('.container').hide();
-    if (this.electionTimer) {
-      clearTimeout(this.electionTimer);
-      this.electionTimer = null;
-    }
+    clearTimeout(this.electionTimer);
     this.interactionService.getInteractionJson().subscribe((data) => {
       $('.video-player').attr('src', env.environment.server + key);
       const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
@@ -43,9 +40,9 @@ export class PlayComponent implements OnInit {
 
       const nextOptions = data[key];
       if (!nextOptions) {
-        $('.video-player').unbind('ended').on('ended', this.showDone);
+        $('.video-player').unbind('ended').on('ended', this.showDone.bind(this));
       } else {
-        $('.video-player').unbind('ended').on('ended', this.showOptions);
+        $('.video-player').unbind('ended').on('ended', this.showOptions.bind(this));
         for (let i = 0; i < nextOptions.length; i++) {
           const buttonElement: HTMLAreaElement = <HTMLAreaElement> $('.options a').get(i);
           buttonElement.innerHTML = nextOptions[i].value;
