@@ -60,29 +60,36 @@ export class PlayComponent implements OnInit {
 
       const nextOptions = data[key];
       if (!nextOptions) {
-        $('.video-player').unbind('ended').on('ended', this.showDone.bind(this));
+        $('.video-player').unbind('timeupdate').unbind('ended').on('ended', this.showDone.bind(this));
       } else {
-        $('.video-player').unbind('ended').on('ended', this.showOptions.bind(this));
+        $('.video-player').unbind('timeupdate').on('timeupdate', this.showOptions.bind(this));
         for (let i = 0; i < nextOptions.length; i++) {
           const buttonElement: HTMLAreaElement = <HTMLAreaElement> $('.options a').get(i);
           buttonElement.innerHTML = nextOptions[i].value;
           buttonElement.addEventListener('click', (e: Event) => this.changeVideo(nextOptions[i].key), {'once': true});
         }
       }
+      this.electionTimer = null;
     });
     return false;
   }
 
   private showOptions(): boolean {
-    $('.options').show();
-    this.electionTimer = setTimeout(
-      () => {
-        const options = $('.options a');
-        const optionToSelect = Math.floor(Math.random() * options.length);
-        const buttonElement: HTMLAreaElement = <HTMLAreaElement> options.get(optionToSelect);
-        buttonElement.click();
-      }, config.timeToSelectInSeconds * 1000
-    );
+    if (!this.electionTimer) {
+      const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
+      const timeLeft = videoPlayer.duration - videoPlayer.currentTime;
+      if (timeLeft < config.timeToSelectInSeconds) {
+        $('.options').show();
+        this.electionTimer = setTimeout(
+          () => {
+            const options = $('.options a');
+            const optionToSelect = Math.floor(Math.random() * options.length);
+            const buttonElement: HTMLAreaElement = <HTMLAreaElement> options.get(optionToSelect);
+            buttonElement.click();
+          }, config.timeToSelectInSeconds * 1000
+        );
+      }
+    }
     return false;
   }
 
@@ -92,12 +99,14 @@ export class PlayComponent implements OnInit {
   }
 
   private playOrPause(): void {
-    const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
-    if (!videoPlayer.ended) {
-      if (videoPlayer.paused) {
-        videoPlayer.play();
-      } else {
-        videoPlayer.pause();
+    if (!this.electionTimer) {
+      const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
+      if (!videoPlayer.ended) {
+        if (videoPlayer.paused) {
+          videoPlayer.play();
+        } else {
+          videoPlayer.pause();
+        }
       }
     }
   }
