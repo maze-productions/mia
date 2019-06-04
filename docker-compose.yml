@@ -15,8 +15,6 @@ services:
     ports:
       - 8081:8081
     restart: "always"
-    depends_on:
-      - interactive_short_server
   
   interactive_short_server:
     image: interactive_short_server
