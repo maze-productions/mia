@@ -27,7 +27,7 @@ export class PlayComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    setTimeout(() => this.toastr.info('<b>Pausar</b>: Barra espacionadora<br><b>Pantalla completa</b>: F', null, {
+    setTimeout(() => this.toastr.info('<b>Pausar</b>: Barra espaciadora o Clic<br><b>Pantalla completa</b>: F o Doble clic', null, {
       progressBar: true,
       timeOut: 10000,
       enableHtml: true,
