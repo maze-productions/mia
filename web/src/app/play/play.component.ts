@@ -18,6 +18,7 @@ export class PlayComponent implements OnInit {
 
   doneButtonText = config.doneButtonText;
   electionTimer = null;
+  optionSelected = false;
   handleFullscreen = this.openFullscreen;
 
   constructor(
@@ -51,8 +52,11 @@ export class PlayComponent implements OnInit {
   }
 
   private changeVideo(key: string): boolean {
+    $('.button').css('visibility', 'visible');
+    $('.button').css('opacity', '');
     $('.container').hide();
     clearTimeout(this.electionTimer);
+    this.optionSelected = false;
     this.interactionService.getInteractionJson().subscribe((data) => {
       $('.video-player').attr('src', env.environment.server + key);
       const videoPlayer: HTMLVideoElement = <HTMLVideoElement> $('.video-player')[0];
@@ -64,9 +68,17 @@ export class PlayComponent implements OnInit {
       } else {
         $('.video-player').unbind('timeupdate').on('timeupdate', this.showOptions.bind(this));
         for (let i = 0; i < nextOptions.length; i++) {
-          const buttonElement: HTMLAreaElement = <HTMLAreaElement> $('.options a').get(i);
-          buttonElement.innerHTML = nextOptions[i].value;
-          buttonElement.addEventListener('click', (e: Event) => this.changeVideo(nextOptions[i].key), {'once': true});
+          const buttonElement = $('[button-id=' + i + ']');
+          buttonElement.html(nextOptions[i].value);
+          buttonElement.unbind('click').on('click', (e: any) => {
+            if (!this.optionSelected) {
+              this.optionSelected = true;
+              const currentTarget = $(e.currentTarget);
+              const buttonsNotSelected = $('.options').find('.button').not(currentTarget);
+              buttonsNotSelected.fadeTo(2000, 0, () => buttonsNotSelected.css('visibility', 'hidden'));
+              setTimeout(() => this.changeVideo(nextOptions[i].key), 3000);
+            }
+          });
         }
       }
       this.electionTimer = null;
