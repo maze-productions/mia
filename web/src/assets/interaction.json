@@ -78,8 +78,8 @@
       "value": "Coger tijeras"
     },
     {
-      "key": "C3-D5",
-      "value": "Amenazar con tijeras"
+      "key": "C2B",
+      "value": "Esconder tijeras"
     }
   ],
   "B2B": [
@@ -110,6 +110,16 @@
     {
       "key": "D4",
       "value": "No darle las tijeras"
+    }
+  ],
+  "C2B": [
+    {
+      "key": "D3",
+      "value": "Darle las tijeras"
+    },
+    {
+      "key": "C3-D5",
+      "value": "Amenazar con tijeras"
     }
   ],
   "C3-D5": null,
