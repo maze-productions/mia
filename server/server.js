@@ -12,6 +12,7 @@ const app = express()
  */
 app.get('/video', function(req, res) {
   var id = req.query.id;
+  console.log(`Requesting video with id ${id}`);
   if (id) {
     const path = `assets/${id}.mp4`;
     if (fs.existsSync(path)) {
@@ -50,6 +51,6 @@ app.get('/video', function(req, res) {
   }
 })
 
-app.listen(process.env.PORT || 8080, function() {
+app.listen(process.env.PORT || 8082, function() {
   console.log('[Video Stream Server] Listening...')
 });
