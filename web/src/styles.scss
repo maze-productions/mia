@@ -280,16 +280,48 @@ body.white {
   /* P */
 
   .container p {
-    font-size: 1.5em;
+    font-size: 1em;
     margin-bottom: 0;
+    margin-left: 11em;
+    margin-right: 11em;
+  }
+
+  @media only screen and (max-width: 1024px) {
+
+    .container p {
+      font-size: 0.9em;
+      margin-left: 8em;
+      margin-right: 8em;
+    }
+
   }
 
   @media only screen and (max-width: 768px) {
 
     .container p {
-      font-size: 1.3em;
-      margin-bottom: 0.5em;
-      margin-top: -1.5em;
+      font-size: 0.8em;
+      margin-left: 6em;
+      margin-right: 6em;
+    }
+
+  }
+
+  @media only screen and (max-width: 540px) {
+
+    .container p {
+      font-size: 0.7em;
+      margin-left: 4em;
+      margin-right: 4em;
+    }
+
+  }
+
+  @media only screen and (max-width: 380px) {
+
+    .container p {
+      font-size: 0.6em;
+      margin-left: 2em;
+      margin-right: 2em;
     }
 
   }
@@ -380,11 +412,15 @@ body.white {
     background-color: $hover_color;
   }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   .header a {
     float: none;
     display: block;
     text-align: left;
+  }
+
+  .header .nav-links {
+    display: none;
   }
 }
 
