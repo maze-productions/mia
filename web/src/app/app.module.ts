@@ -11,6 +11,7 @@ import { PlayComponent } from './play/play.component';
 import { ErrorComponent } from './error/error.component';
 import { HeaderComponent } from './header/header.component';
 import { ProjectComponent } from './project/project.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProjectComponent } from './project/project.component';
     PlayComponent,
     ErrorComponent,
     HeaderComponent,
-    ProjectComponent
+    ProjectComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
