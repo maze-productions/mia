@@ -12,6 +12,7 @@ import { ErrorComponent } from './error/error.component';
 import { HeaderComponent } from './header/header.component';
 import { ProjectComponent } from './project/project.component';
 import { TeamComponent } from './team/team.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TeamComponent } from './team/team.component';
     ErrorComponent,
     HeaderComponent,
     ProjectComponent,
-    TeamComponent
+    TeamComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

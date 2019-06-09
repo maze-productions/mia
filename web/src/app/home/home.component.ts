@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 
 import { InteractionService } from '../interaction.service';
-import * as config from '../config';
 import * as env from '../../environments/environment';
 
 @Component({
@@ -12,11 +11,6 @@ import * as env from '../../environments/environment';
   providers: [InteractionService]
 })
 export class HomeComponent implements OnInit {
-
-  facebookUser = config.facebookUser;
-  instagramUser = config.instagramUser;
-  twitterUser = config.twitterUser;
-  emailAddress = config.emailAddress;
 
   constructor(private interactionService: InteractionService) { }
 
