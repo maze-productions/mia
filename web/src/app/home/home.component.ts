@@ -12,10 +12,6 @@ import * as env from '../../environments/environment';
   providers: [InteractionService]
 })
 export class HomeComponent implements OnInit {
-  producer = config.producer;
-  project = config.project;
-  team = config.team;
-  contact = config.contact;
 
   facebookUser = config.facebookUser;
   instagramUser = config.instagramUser;
