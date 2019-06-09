@@ -17,6 +17,6 @@ export const errorButton = 'Volver';
 export const doneButtonText = 'Volver';
 
 export const facebookUser = '';
-export const instagramUser = '';
+export const instagramUser = 'miacortometraje';
 export const twitterUser = '';
-export const emailAddress = 'mazeproductions@gmail.com';
+export const emailAddress = 'miacortometrajeinteractivo@gmail.com';
