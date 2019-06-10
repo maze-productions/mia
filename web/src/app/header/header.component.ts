@@ -13,8 +13,6 @@ export class HeaderComponent implements OnInit {
   team = config.team;
   contact = config.contact;
 
-  emailAddress = config.emailAddress;
-
   constructor() { }
 
   ngOnInit() {
