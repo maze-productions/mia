@@ -1,3 +1,9 @@
+<br>
+<p align="center">
+  <img alt="Mia" src="poster.jpg" width="30%"/>
+</p>
+<br>
+
 # Interactive Short: Mia
 
 [Website](http://miacortometraje.ga) able to play interactively the short film Mia from a streaming server.
