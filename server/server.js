@@ -14,7 +14,7 @@ app.get('/video', function(req, res) {
   var id = req.query.id;
   console.log(`Requesting video with id ${id}`);
   if (id) {
-    const path = `assets/${id}.mp4`;
+    const path = `assets/${id}.mov`;
     if (fs.existsSync(path)) {
       const stat = fs.statSync(path);
       const fileSize = stat.size;
@@ -29,14 +29,14 @@ app.get('/video', function(req, res) {
           'Content-Range': `bytes ${start}-${end}/${fileSize}`,
           'Accept-Ranges': 'bytes',
           'Content-Length': chunksize,
-          'Content-Type': 'video/mp4',
+          'Content-Type': 'video/quicktime',
         };
         res.writeHead(206, head);
         file.pipe(res);
       } else {
         const head = {
           'Content-Length': fileSize,
-          'Content-Type': 'video/mp4',
+          'Content-Type': 'video/quicktime',
         };
         res.writeHead(200, head);
         fs.createReadStream(path).pipe(res);

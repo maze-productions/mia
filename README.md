@@ -50,7 +50,7 @@ docker-compose version 1.23.2, build 1110ad01
 
 To run the whole stack, please execute the following steps:
 
-1. Copy all the video files into `server/assets/` folder. All of them have to be in `.mp4` format.
+1. Copy all the video files into `server/assets/` folder. All of them have to be in `.mov` format.
 
 2. Open a terminal and change the directory to this folder (where this README is). Don't you know how to change the directory in your terminal?
 
